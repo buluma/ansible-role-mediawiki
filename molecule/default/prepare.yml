@@ -1,0 +1,25 @@
+---
+- name: Prepare
+  hosts: all
+  gather_facts: no
+  become: yes
+
+  roles:
+    - role: buluma.bootstrap
+    - role: buluma.core_dependencies
+    - role: buluma.epel
+    - role: buluma.python_pip
+    - role: buluma.buildtools
+    - role: buluma.openssl
+      openssl_items:
+        - name: apache-httpd
+          common_name: "{{ ansible_fqdn }}"
+    - role: buluma.httpd
+    - role: buluma.php
+    - role: buluma.mysql
+      mysql_databases:
+        - name: mediawiki
+      mysql_users:
+        - name: mediawiki
+          password: m3d14w1k1
+          priv: "mediawiki.*:ALL"
