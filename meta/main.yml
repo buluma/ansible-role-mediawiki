@@ -6,7 +6,7 @@ galaxy_info:
   description: Install and configure mediawiki on your system.
   license: Apache-2.0
   company: none
-  min_ansible_version: "2.10"
+  min_ansible_version: "2.12"
 
   platforms:
     - name: Debian
@@ -18,6 +18,9 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - focal
+    - name: Kali
+      versions:
+        - all
 
   galaxy_tags:
     - mediawiki
