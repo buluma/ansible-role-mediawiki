@@ -1,10 +1,10 @@
-# [mediawiki](#mediawiki)
+# [Ansible role mediawiki](#mediawiki)
 
 Install and configure mediawiki on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
-|------|------|-------|---------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-mediawiki/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-mediawiki/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-mediawiki/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-mediawiki)|[![quality](https://img.shields.io/ansible/quality/58799)](https://galaxy.ansible.com/buluma/mediawiki)|[![downloads](https://img.shields.io/ansible/role/d/58799)](https://galaxy.ansible.com/buluma/mediawiki)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/pulls/)|
+|GitHub|GitLab|Downloads|Version|Issues|Pull Requests|
+|------|------|-------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-mediawiki/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-mediawiki/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-mediawiki/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-mediawiki)|[![downloads](https://img.shields.io/ansible/role/d/4763)](https://galaxy.ansible.com/buluma/mediawiki)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
