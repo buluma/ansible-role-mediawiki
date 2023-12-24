@@ -1,10 +1,10 @@
-# [Ansible role mediawiki](#mediawiki)
+# Ansible role [mediawiki](https://galaxy.ansible.com/ui/standalone/roles/buluma/mediawiki/documentation)
 
 Install and configure mediawiki on your system.
 
-|GitHub|Version|Issues|Pull Requests|
-|------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-mediawiki/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-mediawiki/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/pulls/)|
+|GitHub|Version|Issues|Pull Requests|Downloads|
+|------|-------|------|-------------|---------|
+|[![github](https://github.com/buluma/ansible-role-mediawiki/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-mediawiki/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-mediawiki.svg)](https://github.com/buluma/ansible-role-mediawiki/pulls/)|[![Ansible Role](https://img.shields.io/ansible/role/d/buluma/mediawiki)](https://galaxy.ansible.com/ui/standalone/roles/buluma/mediawiki/documentation)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -137,13 +137,11 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 
 ## [License](#license)
 
-[Apache-2.0](https://github.com/buluma/ansible-role-mediawiki/blob/master/LICENSE).
+[Apache-2.0](https://github.com/buluma/ansible-role-mediawiki/blob/master/LICENSE)
 
 ## [Author Information](#author-information)
 
-[Michael Buluma](https://buluma.github.io/)
+[Shadow Walker](https://buluma.github.io/)
 
-
-### [Special Thanks](#special-thanks)
 
 Template inspired by [Robert de Bock](https://github.com/robertdebock)
