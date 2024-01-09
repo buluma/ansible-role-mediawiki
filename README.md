@@ -75,7 +75,7 @@ mediawiki_version: "{{ mediawiki_major }}.{{ mediawiki_minor }}.{{ mediawiki_rel
 # Change this to a simple string that refers to a path, for example:
 # "/data/mediawiki".
 
-mediawiki_destination: "{{ _mediawiki_destination[ansible_distribution] | default(_mediawiki_destination['default'] ) }}"
+mediawiki_destination: "{{ _mediawiki_destination[ansible_distribution] | default(_mediawiki_destination['default']) }}"
 ```
 
 ## [Requirements](#requirements)
@@ -120,7 +120,6 @@ This role has been tested on these [container images](https://hub.docker.com/u/b
 |---------|----|
 |[Debian](https://hub.docker.com/repository/docker/buluma/debian/general)|all|
 |[Fedora](https://hub.docker.com/repository/docker/buluma/fedora/general)|all|
-|[Ubuntu](https://hub.docker.com/repository/docker/buluma/ubuntu/general)|focal|
 |[Kali](https://hub.docker.com/repository/docker/buluma/kali/general)|all|
 
 The minimum version of Ansible required is 2.12, tests have been done to:
