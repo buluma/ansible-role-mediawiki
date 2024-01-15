@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-mediawiki/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-mediawiki/compare/0.2.0...HEAD)
+
+**Merged pull requests:**
+
+- Bump actions/checkout from 3 to 4 [\#14](https://github.com/buluma/ansible-role-mediawiki/pull/14) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [0.2.0](https://github.com/buluma/ansible-role-mediawiki/tree/0.2.0) (2024-01-06)
 
 [Full Changelog](https://github.com/buluma/ansible-role-mediawiki/compare/0.1.2...0.2.0)
