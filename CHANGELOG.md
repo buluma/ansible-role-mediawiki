@@ -1,11 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-mediawiki/tree/HEAD)
+## [0.3.0](https://github.com/buluma/ansible-role-mediawiki/tree/0.3.0) (2024-01-20)
 
-[Full Changelog](https://github.com/buluma/ansible-role-mediawiki/compare/0.2.0...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-mediawiki/compare/0.2.0...0.3.0)
 
 **Merged pull requests:**
 
+- Bump buluma/molecule-action from 6.0.0 to 6.0.1 [\#16](https://github.com/buluma/ansible-role-mediawiki/pull/16) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3 to 4 [\#14](https://github.com/buluma/ansible-role-mediawiki/pull/14) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [0.2.0](https://github.com/buluma/ansible-role-mediawiki/tree/0.2.0) (2024-01-06)
