@@ -17,7 +17,9 @@ galaxy_info:
         - all
     - name: Ubuntu
       versions:
-        - all
+        - jammy
+        - bionic
+        - noble
 
   galaxy_tags:
     - mediawiki
