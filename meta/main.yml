@@ -1,4 +1,3 @@
----
 galaxy_info:
   author: Michael Buluma
   namespace: buluma
@@ -6,25 +5,20 @@ galaxy_info:
   description: Install and configure mediawiki on your system.
   license: Apache-2.0
   company: none
-  min_ansible_version: "2.12"
-
+  min_ansible_version: '2.12'
   platforms:
-    - name: Debian
-      versions:
-        - all
-    - name: Fedora
-      versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - jammy
-        - bionic
-        - noble
-
+  - name: Debian
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
   galaxy_tags:
-    - mediawiki
-    - server
-    - system
-
+  - mediawiki
+  - server
+  - system
 dependencies:
-  - role: buluma.httpd
+- role: buluma.httpd
