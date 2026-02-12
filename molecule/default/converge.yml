@@ -35,5 +35,5 @@
         creates: /usr/lib/python3.12/EXTERNALLY-MANAGED.old
 
   roles:
-    - role: ansible-role-mediawiki
+    - role: buluma.mediawiki
       mediawiki_destination: /opt
