@@ -1,0 +1,25 @@
+digraph PhiloDilemma {
+  label = "Michael Buluma" ;
+  overlap=false
+  {
+    "mediawiki" [fillcolor=yellow style=filled penwidth=3]
+    "buluma.bootstrap" [fillcolor=green style=filled]
+    "buluma.buildtools" [fillcolor=green style=filled]
+    "buluma.core_dependencies" [fillcolor=green style=filled]
+    "buluma.epel" [fillcolor=green style=filled]
+    "buluma.httpd" [fillcolor=green style=filled]
+    "buluma.mysql" [fillcolor=green style=filled]
+    "buluma.openssl" [fillcolor=green style=filled]
+    "buluma.php" [fillcolor=green style=filled]
+    "buluma.python_pip" [fillcolor=green style=filled]
+  }
+  "mediawiki" -> "buluma.bootstrap"
+  "mediawiki" -> "buluma.buildtools"
+  "mediawiki" -> "buluma.core_dependencies"
+  "mediawiki" -> "buluma.epel"
+  "mediawiki" -> "buluma.httpd"
+  "mediawiki" -> "buluma.mysql"
+  "mediawiki" -> "buluma.openssl"
+  "mediawiki" -> "buluma.php"
+  "mediawiki" -> "buluma.python_pip"
+}
