@@ -1,5 +1,4 @@
 ---
-
 - name: assert | Test if mediawiki_major is set correctly
   ansible.builtin.assert:
     that:
