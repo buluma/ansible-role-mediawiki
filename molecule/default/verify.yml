@@ -1,11 +1,9 @@
----
-- name: Verify
-  hosts: all
-  become: true
+- become: true
   gather_facts: false
-
+  hosts: all
+  name: Verify
   tasks:
-    - name: connect to mediawiki
-      ansible.builtin.get_url:
-        url: http://localhost/mediawiki
-        dest: /tmp/whatever
+  - ansible.builtin.get_url:
+      dest: /tmp/whatever
+      url: http://localhost/mediawiki
+    name: connect to mediawiki
