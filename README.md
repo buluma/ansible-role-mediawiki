@@ -11,66 +11,70 @@ Install and configure mediawiki on your system.
 This example is taken from [`molecule/default/converge.yml`](https://github.com/buluma/ansible-role-mediawiki/blob/master/molecule/default/converge.yml) and is tested on each push, pull request and release.
 
 ```yaml
-- become: true
-  gather_facts: true
-  hosts: all
-  name: Converge
-  pre_tasks:
-  - apt: update_cache=yes cache_valid_time=600
-    changed_when: false
-    name: Update apt cache.
-    when: ansible_os_family == 'Debian'
-  - ansible.builtin.stat:
-      path: /usr/lib/python3.11/EXTERNALLY-MANAGED
-    name: Check if python3.11 EXTERNALLY-MANAGED file exists
-    register: externally_managed_file_py311
-  - ansible.builtin.command:
-      cmd: mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old
-    args:
-      creates: /usr/lib/python3.11/EXTERNALLY-MANAGED.old
-    name: Rename python3.11 EXTERNALLY-MANAGED file if it exists
-    when: externally_managed_file_py311.stat.exists
-  - ansible.builtin.stat:
-      path: /usr/lib/python3.12/EXTERNALLY-MANAGED
-    name: Check if python3.12 EXTERNALLY-MANAGED file exists
-    register: externally_managed_file_py312
-  - ansible.builtin.command:
-      cmd: mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.old
-    args:
-      creates: /usr/lib/python3.12/EXTERNALLY-MANAGED.old
-    name: Rename python3.12 EXTERNALLY-MANAGED file if it exists
-    when: externally_managed_file_py312.stat.exists
-  roles:
-  - mediawiki_destination: /opt
-    role: buluma.mediawiki
+---
+  - become: true
+    gather_facts: true
+    hosts: all
+    name: Converge
+    pre_tasks:
+      - apt: update_cache=yes cache_valid_time=600
+        changed_when: false
+        name: Update apt cache.
+        when: ansible_os_family == 'Debian'
+      - ansible.builtin.stat:
+          path: /usr/lib/python3.11/EXTERNALLY-MANAGED
+        name: Check if python3.11 EXTERNALLY-MANAGED file exists
+        register: externally_managed_file_py311
+      - ansible.builtin.command:
+          cmd: mv /usr/lib/python3.11/EXTERNALLY-MANAGED 
+            /usr/lib/python3.11/EXTERNALLY-MANAGED.old
+        args:
+          creates: /usr/lib/python3.11/EXTERNALLY-MANAGED.old
+        name: Rename python3.11 EXTERNALLY-MANAGED file if it exists
+        when: externally_managed_file_py311.stat.exists
+      - ansible.builtin.stat:
+          path: /usr/lib/python3.12/EXTERNALLY-MANAGED
+        name: Check if python3.12 EXTERNALLY-MANAGED file exists
+        register: externally_managed_file_py312
+      - ansible.builtin.command:
+          cmd: mv /usr/lib/python3.12/EXTERNALLY-MANAGED 
+            /usr/lib/python3.12/EXTERNALLY-MANAGED.old
+        args:
+          creates: /usr/lib/python3.12/EXTERNALLY-MANAGED.old
+        name: Rename python3.12 EXTERNALLY-MANAGED file if it exists
+        when: externally_managed_file_py312.stat.exists
+    roles:
+      - mediawiki_destination: /opt
+        role: buluma.mediawiki
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-mediawiki/blob/master/molecule/default/prepare.yml):
 
 ```yaml
-- become: true
-  gather_facts: false
-  hosts: all
-  name: Prepare
-  roles:
-  - role: buluma.bootstrap
-  - role: buluma.core_dependencies
-  - role: buluma.epel
-  - role: buluma.python_pip
-  - role: buluma.buildtools
-  - openssl_items:
-    - common_name: '{{ ansible_fqdn }}'
-      name: apache-httpd
-    role: buluma.openssl
-  - role: buluma.httpd
-  - role: buluma.php
-  - mysql_databases:
-    - name: mediawiki
-    mysql_users:
-    - name: mediawiki
-      password: m3d14w1k1
-      priv: mediawiki.*:ALL
-    role: buluma.mysql
+---
+  - become: true
+    gather_facts: false
+    hosts: all
+    name: Prepare
+    roles:
+      - role: buluma.bootstrap
+      - role: buluma.core_dependencies
+      - role: buluma.epel
+      - role: buluma.python_pip
+      - role: buluma.buildtools
+      - openssl_items:
+          - common_name: '{{ ansible_fqdn }}'
+            name: apache-httpd
+        role: buluma.openssl
+      - role: buluma.httpd
+      - role: buluma.php
+      - mysql_databases:
+          - name: mediawiki
+        mysql_users:
+          - name: mediawiki
+            password: m3d14w1k1
+            priv: mediawiki.*:ALL
+        role: buluma.mysql
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
@@ -80,13 +84,14 @@ Also see a [full explanation and example](https://buluma.github.io/how-to-use-th
 The default values for the variables are set in [`defaults/main.yml`](https://github.com/buluma/ansible-role-mediawiki/blob/master/defaults/main.yml):
 
 ```yaml
-mediawiki_destination: '{{ _mediawiki_destination[ansible_distribution] | default(_mediawiki_destination[''default''])
-  }}'
+---
+mediawiki_destination: "{{ _mediawiki_destination[ansible_distribution] | default(_mediawiki_destination['default'])
+  }}"
 mediawiki_major: 1
 mediawiki_minor: 37
 mediawiki_release: 1
-mediawiki_version: '{{ mediawiki_major }}.{{ mediawiki_minor }}.{{ mediawiki_release
-  }}'
+mediawiki_version: "{{ mediawiki_major }}.{{ mediawiki_minor }}.{{ mediawiki_release
+  }}"
 ```
 
 ## [Requirements](#requirements)
