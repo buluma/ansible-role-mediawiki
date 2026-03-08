@@ -4,21 +4,21 @@
   hosts: all
   name: Prepare
   roles:
-  - role: buluma.bootstrap
-  - role: buluma.core_dependencies
-  - role: buluma.epel
-  - role: buluma.python_pip
-  - role: buluma.buildtools
-  - openssl_items:
-    - common_name: '{{ ansible_fqdn }}'
-      name: apache-httpd
-    role: buluma.openssl
-  - role: buluma.httpd
-  - role: buluma.php
-  - mysql_databases:
-    - name: mediawiki
-    mysql_users:
-    - name: mediawiki
-      password: m3d14w1k1
-      priv: mediawiki.*:ALL
-    role: buluma.mysql
+    - role: buluma.bootstrap
+    - role: buluma.core_dependencies
+    - role: buluma.epel
+    - role: buluma.python_pip
+    - role: buluma.buildtools
+    - openssl_items:
+        - common_name: "{{ ansible_fqdn }}"
+          name: apache-httpd
+      role: buluma.openssl
+    - role: buluma.httpd
+    - role: buluma.php
+    - mysql_databases:
+        - name: mediawiki
+      mysql_users:
+        - name: mediawiki
+          password: m3d14w1k1
+          priv: mediawiki.*:ALL
+      role: buluma.mysql

@@ -4,7 +4,7 @@
   hosts: all
   name: Verify
   tasks:
-  - ansible.builtin.get_url:
-      dest: /tmp/whatever
-      url: http://localhost/mediawiki
-    name: connect to mediawiki
+    - ansible.builtin.get_url:
+        dest: /tmp/whatever
+        url: http://localhost/mediawiki
+      name: connect to mediawiki
