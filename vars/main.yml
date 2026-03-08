@@ -44,4 +44,4 @@ mediawiki_owner: "{{ _mediawiki_owner[ansible_os_family] | default(_mediawiki_ow
 mediawiki_requirements:
   "{{ _mediawiki_requirements[ansible_distribution ~ '-' ~ ansible_distribution_major_version] | default (_mediawiki_requirements[ansible_distribution]
   | default(_mediawiki_requirements['default'])) }}"
-mediawiki_source: https://releases.wikimedia.org/mediawiki/{{ mediawiki_major }}.{{ mediawiki_minor }}/mediawiki-{{ mediawiki_version }}.tar.gz
+mediawiki_source: "https://releases.wikimedia.org/mediawiki/{{ mediawiki_major }}.{{ mediawiki_minor }}/mediawiki-{{ mediawiki_version }}.tar.gz"
