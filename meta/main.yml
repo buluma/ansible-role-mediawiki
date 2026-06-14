@@ -2,7 +2,7 @@
 dependencies:
   - role: buluma.httpd
 galaxy_info:
-  author: Michael Buluma
+  author: buluma
   company: none
   description: Install and configure mediawiki on your system.
   galaxy_tags:
