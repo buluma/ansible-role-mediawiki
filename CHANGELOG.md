@@ -1,11 +1,20 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-mediawiki/tree/HEAD)
+## [26.6.0](https://github.com/buluma/ansible-role-mediawiki/tree/26.6.0) (2026-06-14)
 
-[Full Changelog](https://github.com/buluma/ansible-role-mediawiki/compare/0.3.0...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-mediawiki/compare/0.3.0...26.6.0)
+
+**Closed issues:**
+
+- Update action [\#11](https://github.com/buluma/ansible-role-mediawiki/issues/11)
+- rebuild action [\#10](https://github.com/buluma/ansible-role-mediawiki/issues/10)
 
 **Merged pull requests:**
 
+- Bump docker/setup-buildx-action from 3 to 4 [\#25](https://github.com/buluma/ansible-role-mediawiki/pull/25) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible/ansible-lint from 26.1.1 to 26.2.0 [\#23](https://github.com/buluma/ansible-role-mediawiki/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 4 to 6 [\#22](https://github.com/buluma/ansible-role-mediawiki/pull/22) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump buluma/dependabot-auto-merge-action from 2.1.1 to 2.1.2 [\#18](https://github.com/buluma/ansible-role-mediawiki/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump release-drafter/release-drafter from 5 to 6 [\#17](https://github.com/buluma/ansible-role-mediawiki/pull/17) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [0.3.0](https://github.com/buluma/ansible-role-mediawiki/tree/0.3.0) (2024-01-20)
