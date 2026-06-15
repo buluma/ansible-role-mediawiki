@@ -2,7 +2,7 @@
 collections:
   - name: ansible.posix
   - name: community.crypto
-  - name: community.mysql
+  - name: ansible.mysql
 roles:
   - name: buluma.bootstrap
   - name: buluma.buildtools
