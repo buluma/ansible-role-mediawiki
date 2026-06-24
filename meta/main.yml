@@ -22,4 +22,10 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
+    - name: Alpine
+      versions:
+        - all
+    - name: Suse
+      versions:
+        - all
   role_name: mediawiki
