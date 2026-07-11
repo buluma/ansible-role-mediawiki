@@ -12,15 +12,15 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 
 ```yaml
 ---
-- become: true
-  gather_facts: true
+- name: Converge
   hosts: all
-  name: Converge
+  become: true
+  gather_facts: true
   pre_tasks:
     - apt: update_cache=yes cache_valid_time=600
       changed_when: false
       name: Update apt cache.
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts['os_family'] == 'Debian'
     - ansible.builtin.stat:
         path: /usr/lib/python3.11/EXTERNALLY-MANAGED
       name: Check if python3.11 EXTERNALLY-MANAGED file exists
@@ -52,29 +52,26 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
 
 ```yaml
 ---
-- become: true
-  gather_facts: false
+- name: Prepare
   hosts: all
-  name: Prepare
+  become: true
+  gather_facts: false
+
+  pre_tasks:
+    - name: Install sudo if missing
+      ansible.builtin.raw: "{{ ansible_pkg_mgr | default('dnf') }} install -y sudo}"
+      become: false
+      changed_when: false
+      failed_when: false
+
   roles:
     - role: buluma.bootstrap
     - role: buluma.core_dependencies
     - role: buluma.epel
     - role: buluma.python_pip
     - role: buluma.buildtools
-    - openssl_items:
-        - common_name: "{{ ansible_fqdn }}"
-          name: apache-httpd
-      role: buluma.openssl
     - role: buluma.httpd
     - role: buluma.php
-    - mysql_databases:
-        - name: mediawiki
-      mysql_users:
-        - name: mediawiki
-          password: m3d14w1k1
-          priv: mediawiki.*:ALL
-      role: buluma.mysql
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
@@ -85,7 +82,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 ```yaml
 ---
-mediawiki_destination: "{{ _mediawiki_destination[ansible_distribution] | default(_mediawiki_destination['default']) }}"
+mediawiki_destination: "{{ _mediawiki_destination[ansible_facts['distribution']] | default(_mediawiki_destination['default']) }}"
 mediawiki_major: 1
 mediawiki_minor: 37
 mediawiki_release: 1
@@ -128,13 +125,14 @@ Here is an overview of related roles:
 
 ## [Compatibility](#compatibility)
 
-This role has been tested on these [container images](https://hub.docker.com/u/robertdebock):
+This role has been tested on these [container images](https://hub.docker.com/u/buluma):
 
 |container|tags|
 |---------|----|
-|[Debian](https://hub.docker.com/r/robertdebock/debian)|all|
-|[Fedora](https://hub.docker.com/r/robertdebock/fedora)|all|
-|[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|all|
+|[EL](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
+|[Debian](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
+|[Fedora](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
+|[Ubuntu](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
 
 The minimum version of Ansible required is 2.12, tests have been done on:
 
@@ -150,8 +148,5 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 
 ## [Author Information](#author-information)
 
-[Michael Buluma](https://buluma.github.io/)
+[buluma](https://buluma.github.io/)
 
-### Get Help
-- Report issues: https://github.com/buluma/ansible-role-mediawiki/issues/new
-- See docs: https://docs.ansible.com/collection/gallery/ansible-role-mediawiki
