@@ -20,6 +20,18 @@ _mediawiki_requirements:
     - php-mbstring
     - php-mysqlnd
     - php-xml
+  Rocky:
+    - php-intl
+    - php-json
+    - php-mbstring
+    - php-mysqlnd
+    - php-xml
+  AlmaLinux:
+    - php-intl
+    - php-json
+    - php-mbstring
+    - php-mysqlnd
+    - php-xml
   CentOS-7:
     - php-intl
     - php-json
