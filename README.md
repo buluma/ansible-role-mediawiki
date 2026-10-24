@@ -172,4 +172,4 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 
 [buluma](https://buluma.github.io/)
 
-The default targets MediaWiki 1.46.2. Provision a supported PHP/database runtime and review the upstream upgrade path and extension compatibility before upgrading existing wikis. Updating role defaults does not migrate the wiki database or replace an externally managed PHP runtime.
+The default targets MediaWiki 1.46.2. Existing wikis using the previous 1.37.1 default must first upgrade to MediaWiki 1.39 or 1.43 before upgrading to 1.46.2. Provision a supported PHP/database runtime and review extension compatibility before upgrading existing wikis. Updating role defaults does not migrate the wiki database or replace an externally managed PHP runtime.
