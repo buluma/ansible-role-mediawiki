@@ -3,8 +3,27 @@
   hosts: all
   become: true
   gather_facts: false
+  vars:
+    mediawiki_destination: /opt
+    mediawiki_expected_version: "1.46.2"
   tasks:
-    - ansible.builtin.get_url:
-        dest: /tmp/whatever
-        url: http://localhost/mediawiki
-      name: connect to mediawiki
+    - name: Check that the MediaWiki source was installed
+      ansible.builtin.stat:
+        path: "{{ mediawiki_destination }}/mediawiki/index.php"
+      register: mediawiki_index
+    - name: Read the installed MediaWiki version
+      ansible.builtin.slurp:
+        src: "{{ mediawiki_destination }}/mediawiki/includes/Defines.php"
+      register: mediawiki_defines
+    - name: Assert that MediaWiki source exists
+      ansible.builtin.assert:
+        that:
+          - mediawiki_index.stat.exists
+          - mediawiki_index.stat.isreg
+    - name: Assert the installed MediaWiki version
+      ansible.builtin.assert:
+        that:
+          - >-
+            (mediawiki_defines.content | b64decode) is search(
+            "define\\s*\\(\\s*['\"]MW_VERSION['\"]\\s*,\\s*['\"]" ~
+            mediawiki_expected_version ~ "['\"]")
