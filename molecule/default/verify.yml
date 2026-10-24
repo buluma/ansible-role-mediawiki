@@ -3,8 +3,17 @@
   hosts: all
   become: true
   gather_facts: false
+  vars_files:
+    - ../../defaults/main.yml
+  vars:
+    mediawiki_destination: /opt
   tasks:
-    - ansible.builtin.get_url:
-        dest: /tmp/whatever
-        url: http://localhost/mediawiki
-      name: connect to mediawiki
+    - name: Check that the versioned MediaWiki source was installed
+      ansible.builtin.stat:
+        path: "{{ mediawiki_destination }}/mediawiki-{{ mediawiki_version }}/index.php"
+      register: mediawiki_index
+    - name: Assert that MediaWiki source exists
+      ansible.builtin.assert:
+        that:
+          - mediawiki_index.stat.exists
+          - mediawiki_index.stat.isreg
