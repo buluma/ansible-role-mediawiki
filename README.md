@@ -106,7 +106,9 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 ---
 mediawiki_destination: "{{ _mediawiki_destination[ansible_facts['distribution']] | default(_mediawiki_destination['default']) }}"
 mediawiki_major: 1
+# The minor version is the second component of mediawiki_version.
 mediawiki_minor: 46
+# The release number is the third component of mediawiki_version.
 mediawiki_release: 2
 mediawiki_version: "{{ mediawiki_major }}.{{ mediawiki_minor }}.{{ mediawiki_release }}"
 ```
@@ -171,5 +173,3 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 ## [Author Information](#author-information)
 
 [buluma](https://buluma.github.io/)
-
-The default targets MediaWiki 1.46.2. Existing wikis using the previous 1.37.1 default must first upgrade to MediaWiki 1.39 or 1.43 before upgrading to 1.46.2. Provision a supported PHP/database runtime and review extension compatibility before upgrading existing wikis. Updating role defaults does not migrate the wiki database or replace an externally managed PHP runtime.
